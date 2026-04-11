@@ -126,12 +126,12 @@ TextureImporter:
       name: huhpotion_0
       rect:
         serializedVersion: 2
-        x: 88
-        y: 150
-        width: 585
-        height: 776
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,6 +140,28 @@ TextureImporter:
       bones: []
       spriteID: e86c953b64ab0814d8a4a7ca9b7694de
       internalID: -1709437408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: huhpotion_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b8f5a6d0e2d07742a510ab66912bdd7
+      internalID: 404465599
       vertices: []
       indices: 
       edges: []
@@ -159,6 +181,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       huhpotion_0: -1709437408
+      huhpotion_1: 404465599
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

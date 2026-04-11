@@ -220,6 +220,7 @@ RectTransform:
   - {fileID: 110884329}
   - {fileID: 1958261261}
   - {fileID: 1516180499}
+  - {fileID: 1745712451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -503,7 +504,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 485692722}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1745712452}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ywater
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &485692722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,7 +636,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 680408826}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1745712452}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: nwater
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &680408826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +843,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1035107227}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1745712452}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: nfruit
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1035107227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -938,7 +975,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112639719}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1745712452}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ypoison
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1112639719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,13 +1129,14 @@ GameObject:
   - component: {fileID: 1516180499}
   - component: {fileID: 1516180501}
   - component: {fileID: 1516180500}
+  - component: {fileID: 1516180502}
   m_Layer: 5
   m_Name: RecipePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1516180499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1144,6 +1194,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516180498}
   m_CullTransparentMesh: 1
+--- !u!114 &1516180502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516180498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1516180500}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1745712452}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: ShowRecipePopup
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1585036620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1533,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1611459387}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1745712452}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: npoison
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1611459387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1547,7 +1665,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1691537534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1745712452}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: yfruit
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1691537534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1586,6 +1716,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691537531}
   m_CullTransparentMesh: 1
+--- !u!1 &1745712450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1745712451}
+  - component: {fileID: 1745712452}
+  m_Layer: 5
+  m_Name: PotionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1745712451
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745712450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 18863010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1745712452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745712450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3def9439240be0c4898162ef9885021d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PotionManager
+  potImage: {fileID: 1586032850}
+  characterImage: {fileID: 685453338}
+  inventoryPanel: {fileID: 1958261260}
+  recipePopup: {fileID: 1516180498}
+  defaultPotion: {fileID: 2116628134, guid: 3d8c5e1d38a102a4fad1ac4580c84fee, type: 3}
+  goodPotion: {fileID: 373789284, guid: 40db9998b15865f40b57878d9ac718c7, type: 3}
+  badPotion: {fileID: 1355330429, guid: 70b23e67fa868244295dc717238bf9ee, type: 3}
+  confusedPotion: {fileID: -1709437408, guid: 1676dcaef8954f54ab2781f98653bd83, type: 3}
+  ywater: {fileID: 1736297333, guid: 7603ad943b4935d4ca34e90b8f5f055d, type: 3}
+  xwater: {fileID: 617137501, guid: f36d1f83220349f42ab0062645d0c8bf, type: 3}
+  yfruit: {fileID: -102123904, guid: 1aeda612b09248949bb14bf1c0894d07, type: 3}
+  nfruit: {fileID: -887730419, guid: 1657c7cf82799da41890575d13633a5d, type: 3}
+  ypoison: {fileID: 1434104518, guid: 336401c5f141f8242a1d4b56b42dd8bf, type: 3}
+  npoison: {fileID: 1382311361, guid: 160bc25ea7e81ac4db66cafc3f344daa, type: 3}
+  bottle: {fileID: 1042939153, guid: ed0928739c5d7d64f9679cca14d451f0, type: 3}
 --- !u!1 &1789297932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1935,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1944769125}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1745712452}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: bottle
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1944769125
 MonoBehaviour:
   m_ObjectHideFlags: 0
