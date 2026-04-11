@@ -5,16 +5,16 @@ using System.Collections.Generic;
 public class PotionManager : MonoBehaviour
 {
     [Header("UI References")]
-    public Image potImage;             // Center pot
-    public Image characterImage;       // Left character
-    public GameObject inventoryPanel;  // Right inventory panel
-    public GameObject recipePopup;     // Recipe popup panel
+    public Image potImage;
+    public Image characterImage;
+    public GameObject inventoryPanel;
+    public GameObject recipePopup;
 
     [Header("Potion Sprites")]
-    public Sprite defaultPotion;   // default pot + char
-    public Sprite goodPotion;      // Ypotion
-    public Sprite badPotion;       // Xpotion
-    public Sprite confusedPotion;  // huhpotion
+    public Sprite defaultPotion;
+    public Sprite goodPotion;
+    public Sprite badPotion;
+    public Sprite confusedPotion;
 
     [Header("Inventory Sprites")]
     public Sprite ywater, xwater;
@@ -22,90 +22,127 @@ public class PotionManager : MonoBehaviour
     public Sprite ypoison, npoison;
     public Sprite bottle;
 
-    // Track used items
-    private Dictionary<string, bool> usedItems = new Dictionary<string, bool>();
+    // Track remaining uses
+    private Dictionary<string, int> itemCounts = new Dictionary<string, int>();
 
     // Items currently in pot
     private List<string> itemsInPot = new List<string>();
 
+    // Track which buttons are currently "selected" (green)
+    private List<Button> selectedButtons = new List<Button>();
+
     void Start()
     {
-        // Set default images
         potImage.sprite = defaultPotion;
         characterImage.sprite = defaultPotion;
+
+        // Initialize counts
+        itemCounts["ywater"] = 2;
+        itemCounts["yfruit"] = 1;
+        itemCounts["ypoison"] = 1;
+        itemCounts["bottle"] = 1;
     }
 
-    // Called by buttons: inventory click
     public void UseItem(string itemName)
     {
-        // Check if item is already used
-        if (usedItems.ContainsKey(itemName) && usedItems[itemName])
+        // Find the button for visual feedback
+        Transform itemButton = inventoryPanel.transform.Find(itemName);
+        Button btn = itemButton ? itemButton.GetComponent<Button>() : null;
+
+        // Check if item is usable and has remaining quantity
+        if (itemCounts.ContainsKey(itemName) && itemCounts[itemName] > 0)
         {
-            // Show confused character
-            characterImage.sprite = confusedPotion;
-            return;
-        }
+            if (itemName == "ywater" || itemName == "yfruit" || itemName == "ypoison")
+            {
+                // Add to pot
+                itemsInPot.Add(itemName);
 
-        // Check if item is usable in pot
-        if (itemName == "ywater" || itemName == "yfruit" || itemName == "ypoison")
-        {
-            // Add to pot
-            itemsInPot.Add(itemName);
+                // Flash green on the button
+                if (btn != null && !selectedButtons.Contains(btn))
+                {
+                    btn.image.color = Color.green;
+                    selectedButtons.Add(btn);
+                }
 
-            // Check recipes
-            CheckPotions();
+                CheckPotions();
 
-            // Mark item as used
-            usedItems[itemName] = true;
+                // Decrease count
+                itemCounts[itemName]--;
 
-            // Update inventory icon
-            UpdateInventoryIcon(itemName);
+                // Update inventory icon if needed
+                UpdateInventoryIcon(itemName);
+            }
+            else
+            {
+                // Non-usable item (bottle)
+                characterImage.sprite = confusedPotion;
+            }
         }
         else
         {
-            // Non-usable item: bottle or already empty items
+            // Item has no remaining uses
             characterImage.sprite = confusedPotion;
         }
     }
 
     void CheckPotions()
     {
-        // Healing potion recipe: ywater + yfruit
+        bool potionMade = false;
+
+        // Healing potion
         if (itemsInPot.Contains("ywater") && itemsInPot.Contains("yfruit"))
         {
             potImage.sprite = goodPotion;
             characterImage.sprite = goodPotion;
-            itemsInPot.Clear();
+            potionMade = true;
         }
-        // Poison potion recipe: ywater + ypoison
+        // Poison potion
         else if (itemsInPot.Contains("ywater") && itemsInPot.Contains("ypoison"))
         {
             potImage.sprite = badPotion;
             characterImage.sprite = badPotion;
+            potionMade = true;
+        }
+
+        if (potionMade)
+        {
             itemsInPot.Clear();
+
+            // Reset selected button colors
+            foreach (Button btn in selectedButtons)
+            {
+                if (btn != null)
+                    btn.image.color = Color.white;
+            }
+            selectedButtons.Clear();
         }
     }
 
     void UpdateInventoryIcon(string itemName)
     {
-        // Find the inventory button in the panel
         Transform itemButton = inventoryPanel.transform.Find(itemName);
         if (itemButton)
         {
             Image img = itemButton.GetComponent<Image>();
 
-            // Replace with X version after used
             switch (itemName)
             {
-                case "ywater": img.sprite = xwater; break;
-                case "yfruit": img.sprite = nfruit; break;
-                case "ypoison": img.sprite = npoison; break;
-                case "bottle": img.sprite = bottle; break; // stays same, cannot be used
+                case "ywater":
+                    img.sprite = itemCounts["ywater"] > 0 ? ywater : xwater;
+                    break;
+                case "yfruit":
+                    img.sprite = itemCounts["yfruit"] > 0 ? yfruit : nfruit;
+                    break;
+                case "ypoison":
+                    img.sprite = itemCounts["ypoison"] > 0 ? ypoison : npoison;
+                    break;
+                case "bottle":
+                    img.sprite = bottle;
+                    break;
             }
         }
     }
 
-    // Called by recipe button
     public void ShowRecipePopup(bool show)
     {
         if (recipePopup)
