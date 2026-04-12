@@ -1,6 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class PotionManager : MonoBehaviour
 {
@@ -49,54 +50,72 @@ public class PotionManager : MonoBehaviour
         Transform itemButton = inventoryPanel.transform.Find(itemName);
         Button btn = itemButton ? itemButton.GetComponent<Button>() : null;
 
-        // Check if item is usable and has remaining quantity
-        if (itemCounts.ContainsKey(itemName) && itemCounts[itemName] > 0)
+        // Only allow usable items
+        if (!itemCounts.ContainsKey(itemName) || itemCounts[itemName] <= 0)
         {
-            if (itemName == "ywater" || itemName == "yfruit" || itemName == "ypoison")
-            {
-                // Add to pot
-                itemsInPot.Add(itemName);
-
-                // Flash green on the button
-                if (btn != null && !selectedButtons.Contains(btn))
-                {
-                    btn.image.color = Color.green;
-                    selectedButtons.Add(btn);
-                }
-
-                CheckPotions();
-
-                // Decrease count
-                itemCounts[itemName]--;
-
-                // Update inventory icon if needed
-                UpdateInventoryIcon(itemName);
-            }
-            else
-            {
-                // Non-usable item (bottle)
-                characterImage.sprite = confusedPotion;
-            }
-        }
-        else
-        {
-            // Item has no remaining uses
             characterImage.sprite = confusedPotion;
+            return;
         }
+
+        if (itemName != "ywater" && itemName != "yfruit" && itemName != "ypoison")
+        {
+            characterImage.sprite = confusedPotion;
+            return;
+        }
+
+        // --- Mutual exclusivity: if fruit and poison conflict, clear previous selection ---
+        if ((itemsInPot.Contains("yfruit") && itemName == "ypoison") ||
+            (itemsInPot.Contains("ypoison") && itemName == "yfruit"))
+        {
+            // Remove the previous selection
+            foreach (Button b in selectedButtons)
+            {
+                if (b != null)
+                    b.image.color = Color.white;
+            }
+
+            itemsInPot.Clear();
+            selectedButtons.Clear();
+
+            // Optionally, show confused character
+            characterImage.sprite = confusedPotion;
+
+            // Do NOT add the new item yet
+            return;
+        }
+
+        // --- Valid selection: add to pot ---
+        itemsInPot.Add(itemName);
+
+        // Highlight green
+        if (btn != null && !selectedButtons.Contains(btn))
+        {
+            btn.image.color = Color.green;
+            selectedButtons.Add(btn);
+        }
+
+        // Decrement inventory
+        itemCounts[itemName]--;
+
+        // Update inventory icon
+        UpdateInventoryIcon(itemName);
+
+        // Check for potion completion
+        CheckPotions();
     }
 
     void CheckPotions()
     {
         bool potionMade = false;
 
-        // Healing potion
+        // Healing potion: ywater + yfruit
         if (itemsInPot.Contains("ywater") && itemsInPot.Contains("yfruit"))
         {
             potImage.sprite = goodPotion;
             characterImage.sprite = goodPotion;
             potionMade = true;
         }
-        // Poison potion
+        // Poison potion: ywater + ypoison
         else if (itemsInPot.Contains("ywater") && itemsInPot.Contains("ypoison"))
         {
             potImage.sprite = badPotion;
@@ -147,5 +166,14 @@ public class PotionManager : MonoBehaviour
     {
         if (recipePopup)
             recipePopup.SetActive(show);
+    }
+
+    // --- Coroutine to flash red on invalid button ---
+    private IEnumerator FlashRedButton(Button btn)
+    {
+        Color original = btn.image.color;
+        btn.image.color = Color.red;
+        yield return new WaitForSeconds(0.5f); // red for 0.5 seconds
+        btn.image.color = original;
     }
 }
