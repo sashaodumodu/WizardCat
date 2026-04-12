@@ -23,7 +23,7 @@ public class PotionManager : MonoBehaviour
     public Sprite ypoison, npoison;
     public Sprite bottle;
 
-    // Track remaining uses
+    // how many left
     private Dictionary<string, int> itemCounts = new Dictionary<string, int>();
 
     // Items currently in pot
@@ -63,7 +63,7 @@ public class PotionManager : MonoBehaviour
             return;
         }
 
-        // --- Mutual exclusivity: if fruit and poison conflict, clear previous selection ---
+        // if fruit and poison conflict, clear previous selection
         if ((itemsInPot.Contains("yfruit") && itemName == "ypoison") ||
             (itemsInPot.Contains("ypoison") && itemName == "yfruit"))
         {
@@ -84,7 +84,7 @@ public class PotionManager : MonoBehaviour
             return;
         }
 
-        // --- Valid selection: add to pot ---
+        // Valid selection: add to pot
         itemsInPot.Add(itemName);
 
         // Highlight green
@@ -168,7 +168,7 @@ public class PotionManager : MonoBehaviour
             recipePopup.SetActive(show);
     }
 
-    // --- Coroutine to flash red on invalid button ---
+    //  flash red on invalid button ---
     private IEnumerator FlashRedButton(Button btn)
     {
         Color original = btn.image.color;

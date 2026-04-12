@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class RecipeHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject recipePopup; // Assign the popup panel in Inspector
+    public GameObject recipePopup; // popup panel in Inspector
 
     private bool isHoveringPopup = false;
 
@@ -21,13 +21,13 @@ public class RecipeHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // Start a coroutine to check if we're hovering the popup too
+        //  check if we're hovering the popup too
         StartCoroutine(CheckPopupHover());
     }
 
     private System.Collections.IEnumerator CheckPopupHover()
     {
-        // Wait a tiny frame to allow Unity to detect pointer over popup
+        // Wait a tiny bit to allow Unity to detect pointer over popup
         yield return null;
 
         // If pointer is NOT over the popup, hide it
@@ -37,7 +37,7 @@ public class RecipeHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    // Optional: detect if pointer is over popup
+    // see if pointer is over popup
     public void PointerEnterPopup()
     {
         isHoveringPopup = true;
