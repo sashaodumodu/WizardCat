@@ -90,7 +90,7 @@ public class PotionManager : MonoBehaviour
         // Highlight green
         if (btn != null && !selectedButtons.Contains(btn))
         {
-            btn.image.color = Color.green;
+            btn.image.color = Color.gray3;
             selectedButtons.Add(btn);
         }
 
