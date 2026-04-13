@@ -1,16 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitPotion : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void OpenPotionUI()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Load the PotionUI scene
+        SceneManager.LoadScene("PotionUI", LoadSceneMode.Additive);
     }
 }
