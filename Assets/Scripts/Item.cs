@@ -7,4 +7,14 @@ public class Item : ScriptableObject
     public string description;
     public Sprite icon;
     public GameObject prefab;
+    
+    [Header("Combinations")]
+    public ItemCombination[] combinations;
+}
+
+[System.Serializable]
+public class ItemCombination
+{
+    public Item otherItem;
+    public Item result;
 }

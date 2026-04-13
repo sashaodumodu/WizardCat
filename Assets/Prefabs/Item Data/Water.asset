@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd2bec453adaac846b5d8c8117b0da27, type: 3}
-  m_Name: Snapback Cap
+  m_Name: Water
   m_EditorClassIdentifier: 
-  id: snapback-cap
-  description: A stylish addition.
-  icon: {fileID: 21300000, guid: 66e1157beb58a964ea5a888d64c581c3, type: 3}
-  prefab: {fileID: 5901438805764427246, guid: 888d9bacfff38e14c85f0889d4d1e9f6, type: 3}
+  id: water
+  description: water bottle
+  icon: {fileID: 21300000, guid: 0a38ba24dea064f4792681239208142f, type: 3}
+  prefab: {fileID: 4237719379322959638, guid: 39fcd7ef5109b434a8d6819f5ef0623a, type: 3}

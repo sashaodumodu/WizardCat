@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8487613860245500030}
   - component: {fileID: 3299684632274448576}
   - component: {fileID: 7825464604158734837}
+  - component: {fileID: 9186514875059100155}
   m_Layer: 0
   m_Name: Heartfruit
   m_TagString: Untagged
@@ -118,3 +119,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &9186514875059100155
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4333311049903581688}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.080753915, y: 0.071986556, z: 0.032770354}
+  m_Center: {x: -0.0000000056504432, y: 0.004194851, z: 4.6881103e-11}
