@@ -2574,7 +2574,7 @@ GameObject:
   - component: {fileID: 423629600}
   - component: {fileID: 423629599}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3570,8 +3570,8 @@ GameObject:
   - component: {fileID: 560727358}
   - component: {fileID: 560727359}
   - component: {fileID: 560727360}
-  - component: {fileID: 560727360}
   - component: {fileID: 560727361}
+  - component: {fileID: 560727362}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -3660,6 +3660,21 @@ MonoBehaviour:
   pickUpLayerMask:
     serializedVersion: 2
     m_Bits: 55
+--- !u!114 &560727362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560727357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cea71f01a873054da68d14fc4c97a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  playerCamera: {fileID: 330585545}
+  interactDistance: 5
+  promptText: {fileID: 11166236}
 --- !u!1001 &589665133
 PrefabInstance:
   m_ObjectHideFlags: 0
