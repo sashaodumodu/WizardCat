@@ -5,6 +5,7 @@ using UnityEngine;
 // This script keeps track of potion ingredients based on the main Inventory!
 // Ie. If Heart_fruit is picked up and put inside of the inventory, 
 // it will update the potion ingrediants list, so the player can only use what they have
+/*
 public class PotionIngredientsManager : MonoBehaviour
 {
     [Serializable]
@@ -240,7 +241,7 @@ public class PotionIngredientsManager : MonoBehaviour
         RebuildCountsFromInventory();
     }
 }
-
+*/
 
 //https://learn.unity.com/tutorial/introduction-to-scriptableobjects?language=en
 // https://generalistprogrammer.com/tutorials/engines/unity/inventory-system
