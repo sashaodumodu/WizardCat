@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PotionManager : MonoBehaviour
 {
-    [Header("UI References")]
+    [Header("UI References")] 
     public Image potImage;
     public Image characterImage;
     public GameObject inventoryPanel;
@@ -24,7 +24,10 @@ public class PotionManager : MonoBehaviour
     public Sprite bottle;
 
     // how many left
-    private Dictionary<string, int> itemCounts = new Dictionary<string, int>();
+    //private Dictionary<string, int> itemCounts = new Dictionary<string, int>();
+
+    // Use the new ingredient manager 
+    [SerializeField] private PotionIngredientsManager ingredientsManager;
 
     // Items currently in pot
     private List<string> itemsInPot = new List<string>();
@@ -37,11 +40,17 @@ public class PotionManager : MonoBehaviour
         potImage.sprite = defaultPotion;
         characterImage.sprite = defaultPotion;
 
-        // Initialize counts
-        itemCounts["ywater"] = 2;
-        itemCounts["yfruit"] = 1;
-        itemCounts["ypoison"] = 1;
-        itemCounts["bottle"] = 1;
+        // Initialize counts: OLD
+        //itemCounts["ywater"] = 2;
+        //itemCounts["yfruit"] = 1;
+        //itemCounts["ypoison"] = 1;
+        //itemCounts["bottle"] = 1;
+
+        UpdateInventoryIcon("ywater");
+        UpdateInventoryIcon("yfruit");
+        UpdateInventoryIcon("ypoison");
+        UpdateInventoryIcon("bottle");
+
     }
 
     public void UseItem(string itemName)
@@ -51,7 +60,8 @@ public class PotionManager : MonoBehaviour
         Button btn = itemButton ? itemButton.GetComponent<Button>() : null;
 
         // Only allow usable items
-        if (!itemCounts.ContainsKey(itemName) || itemCounts[itemName] <= 0)
+        //if (!itemCounts.ContainsKey(itemName) || itemCounts[itemName] <= 0)
+        if (ingredientsManager == null || !ingredientsManager.HasIngredient(itemName))
         {
             characterImage.sprite = confusedPotion;
             return;
@@ -84,6 +94,13 @@ public class PotionManager : MonoBehaviour
             return;
         }
 
+        //from real inventory, new
+        if (!ingredientsManager.TryConsumeIngredient(itemName))
+        {
+            characterImage.sprite = confusedPotion;
+            return;
+        }
+
         // Valid selection: add to pot
         itemsInPot.Add(itemName);
 
@@ -94,8 +111,8 @@ public class PotionManager : MonoBehaviour
             selectedButtons.Add(btn);
         }
 
-        // Decrement inventory
-        itemCounts[itemName]--;
+        // Decrement inventory, old
+        //itemCounts[itemName]--;
 
         // Update inventory icon
         UpdateInventoryIcon(itemName);
@@ -147,13 +164,16 @@ public class PotionManager : MonoBehaviour
             switch (itemName)
             {
                 case "ywater":
-                    img.sprite = itemCounts["ywater"] > 0 ? ywater : xwater;
+                    //img.sprite = itemCounts["ywater"] > 0 ? ywater : xwater;
+                    img.sprite = ingredientsManager.GetCount("ywater") > 0 ? ywater : xwater;
                     break;
                 case "yfruit":
-                    img.sprite = itemCounts["yfruit"] > 0 ? yfruit : nfruit;
+                    //img.sprite = itemCounts["yfruit"] > 0 ? yfruit : nfruit;
+                    img.sprite = ingredientsManager.GetCount("yfruit") > 0 ? yfruit : nfruit;
                     break;
                 case "ypoison":
-                    img.sprite = itemCounts["ypoison"] > 0 ? ypoison : npoison;
+                    //img.sprite = itemCounts["ypoison"] > 0 ? ypoison : npoison;
+                    img.sprite = ingredientsManager.GetCount("ypoison") > 0 ? ypoison : npoison;
                     break;
                 case "bottle":
                     img.sprite = bottle;
