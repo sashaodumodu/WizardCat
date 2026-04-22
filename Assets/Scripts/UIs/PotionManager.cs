@@ -37,6 +37,13 @@ public class PotionManager : MonoBehaviour
 
     void Start()
     {
+        if (ingredientsManager == null)
+        {
+            Debug.LogError("PotionManager: ingredientsManager not assigned.");
+            enabled = false;
+            return;
+        }
+
         potImage.sprite = defaultPotion;
         characterImage.sprite = defaultPotion;
 
