@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-/*
+
 public class PotionManager : MonoBehaviour
 {
     [Header("UI References")] 
@@ -205,4 +205,3 @@ public class PotionManager : MonoBehaviour
         btn.image.color = original;
     }
 }
-*/

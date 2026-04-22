@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/main.unity
     guid: 104773c25e19f8945b62254899d42213
+  - enabled: 1
+    path: Assets/Scenes/PotionUI.unity
+    guid: e7111a79b42ea6f4093ae9e66f8a522f
+  - enabled: 1
+    path: Assets/Scenes/MenuScreen.unity
+    guid: 122c62a5f2fc43442b8b40453fb840cb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
