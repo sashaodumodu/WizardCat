@@ -56,6 +56,7 @@ public class PotionManager : MonoBehaviour
     public void UseItem(string itemName)
     {
         // Find the button for visual feedback
+        if (inventoryPanel == null) return;
         Transform itemButton = inventoryPanel.transform.Find(itemName);
         Button btn = itemButton ? itemButton.GetComponent<Button>() : null;
 

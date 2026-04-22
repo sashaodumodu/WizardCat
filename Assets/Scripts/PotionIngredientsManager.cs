@@ -251,7 +251,7 @@ public class PotionIngredientsManager : MonoBehaviour
 // Decided to make a 2nd potion ing manager instead of focing the potion manage to do everything
 
 
-/*
+/* //Inventory.cs
 
 using System;
 using System.Collections.Generic;
