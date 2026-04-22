@@ -71,8 +71,9 @@ public class Spell : MonoBehaviour
     {
         GameObject hitGO = col.gameObject;
 
-        if (hitGO.tag == "Environment_Int")
+        if (hitGO.tag == "Destructible")
         {
+            Destroy(hitGO);
         }
     }
 }

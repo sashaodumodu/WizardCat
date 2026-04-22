@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9025414774974637584}
   - component: {fileID: 7805562767073685001}
   - component: {fileID: 1440959088575019334}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 8545050746894482744}
   - component: {fileID: 645020881258625017}
   - component: {fileID: 3603541652480511055}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 7476928775456127870}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.82}
+  m_LocalPosition: {x: 0, y: 0, z: 0.453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5103,7 +5103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5693770351412663422}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5136,7 +5136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2918911836605358386}
   - component: {fileID: 5130537310478396750}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System Force Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
