@@ -3,12 +3,18 @@ using UnityEngine;
 public class DestroyAndShow : MonoBehaviour 
 {
     public string childNameToDetect;
-    public GameObject objectToShow; // assign in Inspector
+    public GameObject[] objectToShow; // multiple objects
 
     void Start()
     {
         if (objectToShow != null)
-            objectToShow.SetActive(false); // hide at start
+        {
+            foreach (GameObject obj in objectToShow)
+            {
+                if (obj != null)
+                    obj.SetActive(false); // hide all
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -17,8 +23,12 @@ public class DestroyAndShow : MonoBehaviour
         {
             GameObject otherRoot = other.transform.root.gameObject;
 
-            // Show the new object
-            objectToShow.SetActive(true);
+            // Show all objects
+            foreach (GameObject obj in objectToShow)
+            {
+                if (obj != null)
+                    obj.SetActive(true);
+            }
 
             // Destroy both
             Destroy(otherRoot);

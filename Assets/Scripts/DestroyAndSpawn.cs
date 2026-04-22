@@ -3,7 +3,7 @@ using UnityEngine;
 public class DestroyAndSpawn : MonoBehaviour
 {
     public string childNameToDetect;
-    public GameObject objectToSpawn;
+    public GameObject[] objectsToSpawn;
 
     void OnTriggerEnter(Collider other)
     {
@@ -20,7 +20,10 @@ public class DestroyAndSpawn : MonoBehaviour
             Destroy(gameObject);  // this object
 
             // Spawn new item
-            Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
+            foreach (GameObject obj in objectsToSpawn)
+            {
+                Instantiate(obj, spawnPos, Quaternion.identity);
+            }
         }
     }
 }

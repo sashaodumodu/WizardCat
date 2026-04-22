@@ -4165,7 +4165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyAndShow
   childNameToDetect: water(Clone)
-  objectToShow: {fileID: 843429445}
+  objectToShow:
+  - {fileID: 843429445}
 --- !u!1 &565915982 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87252e0452b08d44891766a4049d2d51, type: 3}
@@ -5585,7 +5586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyAndShow
   childNameToDetect: healing_potion(Clone)
-  objectToShow: {fileID: 165159183}
+  objectToShow:
+  - {fileID: 165159183}
 --- !u!1 &738415874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87252e0452b08d44891766a4049d2d51, type: 3}
@@ -6755,7 +6757,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyAndShow
   childNameToDetect: Heartfruit(Clone)
-  objectToShow: {fileID: 1148678515}
+  objectToShow:
+  - {fileID: 1148678515}
 --- !u!114 &843429448
 MonoBehaviour:
   m_ObjectHideFlags: 0
