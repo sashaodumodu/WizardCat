@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: HealingPotion
   description: healing potion
-  icon: {fileID: 21300000, guid: 0a38ba24dea064f4792681239208142f, type: 3}
+  icon: {fileID: 21300000, guid: 2b89a3985a6f99148bbf64ada1c47bbe, type: 3}
   prefab: {fileID: 6382758972340497108, guid: 172e2644fd6b88644bc521b48a945853, type: 3}
+  combinations: []

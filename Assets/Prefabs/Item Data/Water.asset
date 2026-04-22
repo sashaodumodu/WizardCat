@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: water
   description: water bottle
-  icon: {fileID: 21300000, guid: 0a38ba24dea064f4792681239208142f, type: 3}
+  icon: {fileID: 21300000, guid: d7cd57aeb79322e45b73125a0d26d18f, type: 3}
   prefab: {fileID: 4237719379322959638, guid: 39fcd7ef5109b434a8d6819f5ef0623a, type: 3}
+  combinations: []
